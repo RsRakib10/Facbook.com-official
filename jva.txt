@@ -1,0 +1,20 @@
+function createPost() {
+    const postText = document.getElementById('postText').value;
+    if (postText.trim() === "") {
+        alert("Post content can't be empty!");
+        return;
+    }
+
+    const postContainer = document.getElementById('posts');
+
+    const postElement = document.createElement('div');
+    postElement.classList.add('post');
+
+    postElement.innerHTML = `
+        <p class="username">John Doe</p>
+        <p class="content">${postText}</p>
+    `;
+
+    postContainer.appendChild(postElement);
+    document.getElementById('postText').value = ''; // Clear the text area after posting
+}
